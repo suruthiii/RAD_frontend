@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Progress } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import Lesson from "./MiddleContainer/Lesson";
 
 const Home = () => {
+  const [courses, setcourse] = useState([]);
+
+  const getdata = () => {
+    fetch("http://localhost:8070/course/view_courses/")
+      .then((response) => response.json())
+      .then((res) => setcourse(res));
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <>
       <div class="text-xl">My Lessons</div>
@@ -14,45 +26,16 @@ const Home = () => {
         <div class="w-[5%]"></div>
       </div>
       <div class="p-2">
-        <Lesson
-          lesson="Data Structures and Alorithm III"
-          progress={20}
-          instructor="Dr. Thilini"
-          link="/"
-          color="#1e00ff"
-        />
-
-        <Lesson
-          lesson="Software Engineering III"
-          progress={50}
-          instructor="Dr. Thilina Haloluwa"
-          link="/"
-          color="#00ff3c"
-        />
-
-        <Lesson
-          lesson="Functional Programming"
-          progress={70}
-          instructor="Dr. Kasun De Soyza"
-          link="/"
-          color="#ff0000"
-        />
-
-        <Lesson
-          lesson="Machine Learning and Neural Computing"
-          progress={40}
-          instructor="Dr. Kasun Gunawardhane"
-          link="/"
-          color="#d9ff00"
-        />
-
-        <Lesson
-          lesson="Rapid Application Development"
-          progress={20}
-          instructor="Mr. Kavinda"
-          link="/"
-          color="#ff00d9"
-        />
+        {courses.map((course, index) => (
+          <Lesson
+            key={index}
+            lesson={course.coursename}
+            progress={20}
+            instructor={course.instructor}
+            link={`/viewCourse/${course._id}`}
+            color="#1e00ff"
+          />
+        ))}
       </div>
     </>
   );

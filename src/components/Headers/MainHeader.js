@@ -19,21 +19,6 @@ function Main_header() {
             <div class="hidden mr-4 lg:block">
               <ul class="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
                 <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/">Home</Link>
-                </li>
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/admin">Admin</Link>
-                </li>
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/Lecturer">Lecturer</Link>
-                </li>
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/instructor">Instructor</Link>
-                </li>
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/nonacc">Non Acadamic</Link>
-                </li>
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
                   <Link to="/student">Student</Link>
                 </li>
                 <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
@@ -98,7 +83,7 @@ function Main_header() {
       <div class="fixed left-0 top-0 flex w-full max-w-[20rem] flex-col bg-white bg-clip-border p-4 text-gray-700 border h-[100vh] z-10">
         <div class="p-4 mb-2">
           <h5 class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-            Sidebar
+            LMS
           </h5>
         </div>
         <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
@@ -142,7 +127,7 @@ function Main_header() {
                 ></path>
               </svg>
             </div>
-            E-Commerce
+            Admin
           </div>
           <div
             role="button"
@@ -163,7 +148,7 @@ function Main_header() {
                 ></path>
               </svg>
             </div>
-            Inbox
+            Lecturer
             <div class="grid ml-auto place-items-center justify-self-end">
               <div class="relative grid items-center px-2 py-1 font-sans text-xs font-bold uppercase rounded-full select-none whitespace-nowrap bg-blue-gray-500/20 text-blue-gray-900">
                 <span class="">14</span>
@@ -189,7 +174,7 @@ function Main_header() {
                 ></path>
               </svg>
             </div>
-            Profile
+            Instructor
           </div>
           <div
             role="button"
@@ -210,7 +195,7 @@ function Main_header() {
                 ></path>
               </svg>
             </div>
-            Settings
+            Non Acadamic
           </div>
         </nav>
       </div>
