@@ -1,31 +1,34 @@
-import React,{Fragment, useState} from "react";
-import axios from "axios";
-import './add_style.css'
-import logo from '../images/LOGO.png'
-import Main_header from "./Main_header";
+import React from "react";
+import MainHeader from "./Headers/MainHeader";
+import RightContainer from "./Main/RightContainer";
+import MiddleContainer from "./Main/MiddleContainer";
+import ProgressCircle from "./Main/MiddleContainer/ProgressCircle";
+import WelcomeMessage from "./Main/MiddleContainer/WelcomeMessage";
 
-const Home = () =>
-{
-   return(
-      <div>
-         <Main_header/>
-      <div className="container">
-      <div className="text">
-         <h1>Welcome!!!</h1>
-         <img class="img" src={logo} alt="Logo" />
-         <p>Learning Management System (LMS)</p>
+const Home = () => {
+  return (
+    <div>
+      <MainHeader />
+      <div class="ml-[21rem] mt-[5rem] w-[76vw] flex justify-center">
+        <div class="w-[70%] mr-4">
+          <div class="border rounded-xl p-[20px] flex justify-between items-center h-[220px]">
+            <div>
+              <WelcomeMessage />
+            </div>
+            <div className="flex items-center justify-center relative">
+              <ProgressCircle />
+            </div>
+          </div>
+          <div class="border rounded-xl p-[20px] mt-10">
+            <MiddleContainer />
+          </div>
+        </div>
+        <div class="border w-[30%] ml-4 rounded-xl p-[20px]">
+          <RightContainer />
+        </div>
       </div>
-      <form action="#">
-         <div className="form-row"/>
-            
-              
-      </form>
-      </div>
-      </div>
-   
-    )
-
-}
-
+    </div>
+  );
+};
 
 export default Home;
