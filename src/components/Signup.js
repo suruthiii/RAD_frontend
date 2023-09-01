@@ -45,7 +45,7 @@ export default function Signup() {
       <Header_2 />
 
       <div class="flex justify-center px-6 py-12 lg:px-8 h-[95vh] items-center">
-        <div class="bg-white w-[600px] h-[580px] rounded-xl pt-4 mt-20">
+        <div class="bg-white w-[600px] h-[580px] rounded-xl pt-4 mt-20 border-2" style={{boxShadow: '0 0 10px 0.1px #d6d6d6'}}>
           <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
               class="mx-auto h-10 w-auto"

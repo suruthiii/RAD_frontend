@@ -45,7 +45,7 @@ export default function All_course() {
           className=""
           style={{ fontWeight: 1000, textAlign: "center", fontSize: "30px" }}
         >
-          All courses
+          All Courses
         </h1>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

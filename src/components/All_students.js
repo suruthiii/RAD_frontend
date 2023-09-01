@@ -1,82 +1,105 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { render } from "@testing-library/react";
-import './view_style.css'
+import "./view_style.css";
 import Header_user from "./Header_user";
+import NavBar from "./Headers/MainHeader";
 
-export default function All_students()
-{
-    const [students, setStudents] = useState([])
-    const [modeldata, setModeldata] = useState({
-        name : '',
-        age : '',
-        gender : '',
-        course : ''
+export default function All_students() {
+  const [students, setStudents] = useState([]);
+  const [modeldata, setModeldata] = useState({
+    name: "",
+    age: "",
+    gender: "",
+    course: "",
+  });
 
-    })  
- 
-const getdata = () => {
-    fetch('http://localhost:8070/student/view_students/')
-    .then(response=>response.json())
-    .then(res=>setStudents(res))
-    
+  const getdata = () => {
+    fetch("http://localhost:8070/student/view_students/")
+      .then((response) => response.json())
+      .then((res) => setStudents(res));
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  const delete_student = (id) => {
+    axios
+      .delete("http://localhost:8070/student/delete/" + id)
+      .then(() => {
+        alert("Student deleted");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+  return (
+    <div>
+      <Header_user />
+      <NavBar />
+      <div className="mt-[50px] ml-[20rem] px-[200px] flex flex-col item-center">
+        <h1
+          className=""
+          style={{ fontWeight: 1000, textAlign: "center", fontSize: "30px" }}
+        >
+          All Students
+        </h1>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400 bg-[#A937FF] opacity-[70%]">
+              <tr>
+                <th scope="col" class="px-6 py-3">
+                  Student Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Age
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Gender
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Course
+                </th>
+                <th scope="col" class="px-6 py-3 text-center w-[150px]">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map((student, index) => (
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    {student.name}
+                  </th>
+                  <td class="px-6">{student.age}</td>
+                  <td class="px-6">{student.gender}</td>
+                  <td class="px-6">{student.course}</td>
+                  <td class="px-6 text-left">
+                    <Link
+                      to={`/update_student/${student._id}`}
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2"
+                    >
+                      Edit
+                    </Link>
+                    |
+                    <Link
+                      onClick={() => delete_student(student._id)}
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2"
+                    >
+                      Delete
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-    useEffect (() => {
-        getdata();
-    } , []);
-    
-    const delete_student = ((id) => {
-        axios.delete("http://localhost:8070/student/delete/" + id).then(()=>{
-            alert("student delete")
-          }).catch((err)=>{alert(err)})
-    })  
-    return(
-        <div>
-         <Header_user/>
-        <div className="container">
-            <h1 className="tital">All Students</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th className="head">
-                        Name&nbsp;&nbsp;&nbsp;&nbsp;
-                        </th>
-
-                        <th className="head">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Age&nbsp;&nbsp;&nbsp;&nbsp;
-                        </th>
-                        <th className="head">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Gender&nbsp;&nbsp;&nbsp;&nbsp;
-                        </th>
-                        <th className="head">
-                            Course&nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody className="body">
-                    {students.map((names,index)=>
-                    <tr key={index}>
-                        <td className="data">{names.name}</td>
-                        <td className="data">{names.age}</td>
-                        <td className="data">{names.gender}</td>
-                        <td className="data">{names.course}</td>
-                        <td>
-                            <Link className="link" to={`/update_student/${names._id}`}>update</Link>
-                            &nbsp;&nbsp;&nbsp;
-                            <button className="delete_button" onClick={() => delete_student(names._id)}>delete</button>
-                    
-                        </td>
-                        <br></br><br></br>
-                    </tr>
-                    )}
-
-                    
-                </tbody>
-            </table>
-            
-            </div>
-            </div>
-    )
-} 
