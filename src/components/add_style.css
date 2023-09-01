@@ -10,7 +10,7 @@ body{
   min-height: 100vh;
   padding: 10px;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(115deg, #56d8e4 20%, #b2e616 80%);
+  /* background: linear-gradient(115deg, #56d8e4 20%, #b2e616 80%); */
 }
 .container{
   position: absolute;
@@ -187,7 +187,7 @@ input{
   margin-bottom: 20px;
 }
 
-select{
+/* select{
   width: 200px;
   padding: 15px 20px;
   margin-bottom: 20px;
@@ -196,7 +196,7 @@ select{
   background-color: lightgray;
   font-size: 16px;
   padding: 5px;
-}
+} */
 
 .para{
   font-size: 20px;

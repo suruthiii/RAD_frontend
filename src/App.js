@@ -1,4 +1,5 @@
-import './App.css';
+// import './App.css';
+import './index.css';
 import AddStudent from './components/Add_Student';
 import All_students from './components/All_students';
 import { BrowserRouter as Router,Routes,Route, BrowserRouter,Navigate } from 'react-router-dom';
