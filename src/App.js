@@ -52,6 +52,7 @@ import All_submition from "./components/All_submition";
 import Update_submition from "./components/Update_submition";
 import View_submition_lec from "./components/View_submition_lec";
 import ViewCourse from "./components/ViewCourse";
+import ViewAssignment from "./components/ViewAssignment";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -414,6 +415,16 @@ const App = () => {
             element={
               loggedIn || loggedIn_lec || loggedIn_ins ? (
                 <All_assignment />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+          <Route
+            path="/viewAssignment/:id"
+            element={
+              loggedIn_lec || loggedIn ? (
+                <ViewAssignment />
               ) : (
                 <Login handleLogin={handleLogin} />
               )

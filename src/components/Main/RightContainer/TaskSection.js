@@ -1,39 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TaskItem from "./TaskItem";
 
 const RightContainer = () => {
+  const [assignments, setassignment] = useState([]);
+  const [modeldata, setModeldata] = useState({
+    coursename: "",
+    aname: "",
+    task: "",
+    duedate: "",
+  });
+
+  const getdata = () => {
+    fetch("http://localhost:8070/view_assignment/View_Assignment_stu/")
+      .then((response) => response.json())
+      .then((res) => setassignment(res));
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
   return (
     <>
-      <TaskItem
-        name="DSA Group Assignment"
-        description="DSA group assignment"
-        link="/"
-        color="red"
-      />
-      <TaskItem
-        name="RAD Tutorial 01"
-        description="RAD Tutorial 01"
-        link="/"
-        color="#00ff15"
-      />
-      <TaskItem
-        name="SE In-class Assignment"
-        description="SE in-class assignment"
-        link="/"
-        color="#4800ff"
-      />
-      <TaskItem
-        name="SE In-class Assignment"
-        description="SE in-class assignment"
-        link="/"
-        color="#ddff00"
-      />
-      <TaskItem
-        name="SE In-class Assignment"
-        description="SE in-class assignment"
-        link="/"
-        color="#ff00f7"
-      />
+      {assignments.map((assignment, index) => (
+        <TaskItem
+          key={index}
+          name={assignment.aname}
+          description={assignment.task}
+          link={`/viewAssignment/${assignment._id}`}
+          color="red"
+        />
+      ))}
     </>
   );
 };

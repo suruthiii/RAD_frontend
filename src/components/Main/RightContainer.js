@@ -45,7 +45,7 @@ const RightContainer = () => {
           <h1 className="pt-3 text-xl">Tasks</h1>
           <Link
             class="text-xs text-[#00000047] translate-y-6 hover:text-[#00000079] duration-150"
-            to="/"
+            to="/View_Assignments"
           >
             View All
           </Link>
