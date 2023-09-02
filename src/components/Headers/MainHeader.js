@@ -45,6 +45,7 @@ function Main_header() {
             >
               <NotificationIcon className="fill-current translate-x-[-35px] text-[#80808082]" size={30} />
             </Badge>
+
             <Dropdown placement="bottom-start">
               <DropdownTrigger>
                 <User
@@ -71,7 +72,7 @@ function Main_header() {
                 <DropdownItem key="help_and_feedback">
                   Help & Feedback
                 </DropdownItem>
-                <DropdownItem key="logout" color="danger">
+                <DropdownItem key="logout">
                   Log Out
                 </DropdownItem>
               </DropdownMenu>
@@ -89,7 +90,7 @@ function Main_header() {
         <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
           <div
             role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
             <div class="grid mr-4 place-items-center">
               <svg
@@ -110,7 +111,7 @@ function Main_header() {
           </div>
           <div
             role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start text-start hover:text-[#A937FF] focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
             <div class="grid mr-4 place-items-center">
               <svg
@@ -131,7 +132,7 @@ function Main_header() {
           </div>
           <div
             role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start text-start hover:text-[#A937FF] focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
             <div class="grid mr-4 place-items-center">
               <svg
@@ -157,7 +158,7 @@ function Main_header() {
           </div>
           <div
             role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start text-start hover:text-[#A937FF] focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
             <div class="grid mr-4 place-items-center">
               <svg
@@ -178,7 +179,7 @@ function Main_header() {
           </div>
           <div
             role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start text-start hover:text-[#A937FF]  focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
             <div class="grid mr-4 place-items-center">
               <svg

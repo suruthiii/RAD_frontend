@@ -1,82 +1,106 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { render } from "@testing-library/react";
-import './view_style.css'
+// import './view_style.css'
 import Header_course from "./Header_course";
+import NavBar from "./Headers/MainHeader";
 
-export default function All_course()
-{
-    const [course, setcourse] = useState([])
-    const [modeldata, setModeldata] = useState({
-        coursename : '',
-        year : "",
-        duration : "",
-        credit : ""
+export default function All_course() {
+  const [modeldata, setModeldata] = useState({
+    coursename: "",
+    year: "",
+    duration: "",
+    credit: "",
+  });
 
-    })  
- 
-const getdata = () => {
-    fetch('http://localhost:8070/course/view_courses/')
-    .then(response=>response.json())
-    .then(res=>setcourse(res))
-    
+  const [courses, setcourse] = useState([]);
+
+  const getdata = () => {
+    fetch("http://localhost:8070/course/view_courses/")
+      .then((response) => response.json())
+      .then((res) => setcourse(res));
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+  const delete_course = (id) => {
+    axios
+      .delete("http://localhost:8070/course/delete/" + id)
+      .then(() => {
+        alert("Course deleted");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+  return (
+    <div>
+      <Header_course />
+      <NavBar />
+      <div className="mt-[50px] ml-[20rem] px-[200px] flex flex-col item-center">
+        <h1
+          className=""
+          style={{ fontWeight: 1000, textAlign: "center", fontSize: "30px" }}
+        >
+          All Courses
+        </h1>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400 bg-[#A937FF] opacity-[70%]">
+              <tr>
+                <th scope="col" class="px-6 py-3">
+                  Course name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Year
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Duration
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Credit
+                </th>
+                <th scope="col" class="px-6 py-3 text-center w-[150px]">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {courses.map((course, index) => (
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    {course.coursename}
+                  </th>
+                  <td class="px-6">{course.year}</td>
+                  <td class="px-6">{course.duration}</td>
+                  <td class="px-6">{course.credit}</td>
+                  <td class="px-6 text-left">
+                    <Link
+                      to={`/update_course/${course._id}`}
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2"
+                    >
+                      Edit
+                    </Link>
+                    |
+                    <Link
+                      onClick={() => delete_course(course._id)}
+                      class="font-medium text-blue-600 dark:text-blue-500 hover:underline ml-2"
+                    >
+                      Delete
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-    useEffect (() => {
-        getdata();
-    } , []);
-    
-    const delete_course = ((id) => {
-        axios.delete("http://localhost:8070/course/delete/" + id).then(()=>{
-            alert("course delete")
-          }).catch((err)=>{alert(err)})
-    })  
-    return(
-        <div>
-         <Header_course/>
-        <div className="container">
-            <h1 className="tital">All course</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th className="head">
-                        Course Name&nbsp;&nbsp;&nbsp;&nbsp;
-                        </th>
-
-                        <th className="head">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;
-                        </th>
-                        <th className="head">
-                        &nbsp;&nbsp;&nbsp;&nbsp;Duration&nbsp;&nbsp;&nbsp;&nbsp;
-                        </th>
-                        <th className="head">
-                        Credit&nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody className="body">
-                    {course.map((names,index)=>
-                    <tr key={index}>
-                        <td className="data">{names.coursename}</td>
-                        <td className="data">{names.year}</td>
-                        <td className="data">{names.duration}</td>
-                        <td className="data">{names.credit}</td>
-                        <td>
-                            <Link className="link" to={`/update_course/${names._id}`}>update</Link>
-                            &nbsp;&nbsp;&nbsp;
-                            <button className="delete_button" onClick={() => delete_course(names._id)}>delete</button>
-                    
-                        </td>
-                        <br></br><br></br>
-                    </tr>
-                    )}
-
-                    
-                </tbody>
-            </table>
-            
-            </div>
-            </div>
-    )
-} 

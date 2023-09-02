@@ -1,9 +1,9 @@
 import React from "react";
 import MainHeader from "./Headers/MainHeader";
-import RightContainer from "./Main/RightContainer";
-import MiddleContainer from "./Main/MiddleContainer";
-import ProgressCircle from "./Main/MiddleContainer/ProgressCircle";
-import WelcomeMessage from "./Main/MiddleContainer/WelcomeMessage";
+import RightContainer from "./Home/RightContainer";
+import MiddleContainer from "./Home/MiddleContainer";
+import ProgressCircle from "./Home/MiddleContainer/ProgressCircle";
+import WelcomeMessage from "./Home/MiddleContainer/WelcomeMessage";
 
 const Home = () => {
   return (
