@@ -11,24 +11,11 @@ import {
 import { NotificationIcon } from "../Icons/Notification";
 import { Link } from "react-router-dom";
 
-function Main_header() {
+function StudentHeader() {
   return (
     <>
       <nav class="fixed top-0 left-[20rem] z-50 block w-[79vw] max-w-full px-4 py-2 text-white bg-white rounded-none h-max bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4 shadow-xl shadow-white">
         <div class="flex items-center justify-between text-blue-gray-900">
-          {/* <div class="flex items-center gap-4">
-            <div class="hidden mr-4 lg:block">
-              <ul class="flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/student">Student</Link>
-                </li>
-                <li class="block p-1 font-sans text-sm antialiased font-normal leading-normal text-black">
-                  <Link to="/cleans">Cleaning staff</Link>
-                </li>
-              </ul>
-            </div>
-          </div> */}
-
           <div className="flex items-center">
             <input
               type="text"
@@ -113,7 +100,7 @@ function Main_header() {
             Dashboard
           </Link>
           <Link
-            to="/admin"
+            to="/ViewAnnouncements"
             role="button"
             class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:text-[#A937FF] active:text-[#A937FF]"
           >
@@ -127,15 +114,81 @@ function Main_header() {
               >
                 <path
                   fill-rule="evenodd"
-                  d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                  d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
                   clip-rule="evenodd"
                 ></path>
               </svg>
             </div>
-            Admin
+            Announcements
           </Link>
           <Link
-            to="/view_lecturers"
+            to="/ViewCourses"
+            role="button"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:text-[#A937FF] active:text-[#A937FF]"
+          >
+            <div class="grid mr-4 place-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            Courses
+          </Link>
+          <Link
+            to="/ViewAssignments"
+            role="button"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:text-[#A937FF] active:text-[#A937FF]"
+          >
+            <div class="grid mr-4 place-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            Assignments
+          </Link>
+          <Link
+            to="/ViewSubmissions"
+            role="button"
+            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:text-[#A937FF] active:text-[#A937FF]"
+          >
+            <div class="grid mr-4 place-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            Submissions
+          </Link>
+          <Link
+            to="/ViewLecturers"
             role="button"
             class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:text-[#A937FF] active:text-[#A937FF]"
           >
@@ -162,28 +215,7 @@ function Main_header() {
             </div>
           </Link>
           <Link
-          to="/ViewCourses"
-            role="button"
-            class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:text-[#A937FF] focus:text-[#A937FF] active:text-[#A937FF]"
-          >
-            <div class="grid mr-4 place-items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-                class="w-5 h-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-            Courses
-          </Link>
-          <Link
+            to="/ViewInstructors"
             role="button"
             class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start text-start hover:text-[#A937FF]  focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
           >
@@ -202,7 +234,7 @@ function Main_header() {
                 ></path>
               </svg>
             </div>
-            Non Acadamic
+            Instructors
           </Link>
         </nav>
       </div>
@@ -210,4 +242,4 @@ function Main_header() {
   );
 }
 
-export default Main_header;
+export default StudentHeader;

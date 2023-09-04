@@ -7,7 +7,7 @@ const Lesson = ({ lesson, progress, instructor, link, color }) => {
     <>
       <Link
         to={link}
-        class="flex justify-between mt-3 border-b px-3 pt-2 pb-3 hover:bg-[#8080802a] hover:rounded-lg duration-200"
+        class="flex justify-between mt-3 px-3 py-2 border hover:bg-[#80808019] rounded-lg duration-300 hover:scale-[1.01]"
       >
         <div class="flex items-center w-[35%]">
           <div

@@ -7,7 +7,7 @@ const Home = () => {
   const [courses, setcourse] = useState([]);
 
   const getdata = () => {
-    fetch("http://localhost:8070/course/view_courses/")
+    fetch("http://localhost:8070/course_student/view_courses/student")
       .then((response) => response.json())
       .then((res) => setcourse(res));
   };
@@ -29,10 +29,10 @@ const Home = () => {
         {courses.map((course, index) => (
           <Lesson
             key={index}
-            lesson={course.coursename}
-            progress={20}
+            lesson={course.courseName}
+            progress={course.progress}
             instructor={course.instructor}
-            link={`/viewCourse/${course._id}`}
+            link={`/ViewCourse/${course._id}`}
             color="#1e00ff"
           />
         ))}

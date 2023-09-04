@@ -1,18 +1,7 @@
 import React from "react";
-// import { Calendar as NextUICalendar } from "@nextui-org/react";
-// import { today, getLocalTimeZone, isWeekend } from "@internationalized/date";
-// import { useLocale } from "@react-aria/i18n";
 
-import {
-  Calendar,
-  Radio,
-  RadioGroup,
-  Button,
-  ButtonGroup,
-  cn,
-} from "@nextui-org/react";
+import { Calendar } from "@nextui-org/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
-import { useLocale } from "@react-aria/i18n";
 
 import { Link } from "react-router-dom";
 import TaskSection from "./RightContainer/TaskSection";
@@ -20,9 +9,6 @@ import TaskSection from "./RightContainer/TaskSection";
 const RightContainer = () => {
   let defaultDate = today(getLocalTimeZone());
   let [value, setValue] = React.useState(defaultDate);
-  let { locale } = useLocale();
-
-  let now = today(getLocalTimeZone());
 
   return (
     <>

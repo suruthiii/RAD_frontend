@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import { render } from "@testing-library/react";
-// import './view_style.css'
-import Header_course from "./Header_course";
-import NavBar from "./Headers/MainHeader";
+import NavBar from "../../../components/Headers/StudentHeader";
 
-export default function All_course() {
+export default function ViewAllCourses() {
   const [courseName, setCourseName] = useState("");
   const [year, setYear] = useState("");
   const [duration, setDuration] = useState("");
@@ -108,9 +104,8 @@ export default function All_course() {
   };
   return (
     <div>
-      <Header_course />
       <NavBar />
-      <div className="mt-[50px] ml-[20rem] px-[200px] flex flex-col item-center">
+      <div className="mt-[100px] ml-[20rem] px-[200px] flex flex-col item-center">
         <h1
           className=""
           style={{ fontWeight: 1000, textAlign: "center", fontSize: "30px" }}

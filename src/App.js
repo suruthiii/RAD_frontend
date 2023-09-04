@@ -24,7 +24,6 @@ import Update_cleaningstaff from "./components/Update_cleaningstaff";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import View_signup from "./components/View_signup";
-import Home from "./components/Home";
 import { useEffect, useState } from "react";
 import AddCourse from "./components/Add_Course";
 import All_course from "./components/All_courses";
@@ -51,8 +50,20 @@ import Addsubmition from "./components/Add_submition";
 import All_submition from "./components/All_submition";
 import Update_submition from "./components/Update_submition";
 import View_submition_lec from "./components/View_submition_lec";
-import ViewCourse from "./components/ViewCourse";
-import ViewAssignment from "./components/ViewAssignment";
+import ViewCourse_Lec from "./components/ViewCourse";
+import ViewAssignment_Lec from "./components/ViewAssignment";
+
+import Home from "./pages/Student/Home";
+import ViewCourses from "./pages/Student/Course/ViewAllCourses";
+import ViewCourse from "./pages/Student/Course/ViewCourse";
+import ViewAllAnnouncements from "./pages/Student/Announcement/ViewAllAnnouncements";
+import ViewAllSubmissions from "./pages/Student/Submission/ViewAllSubmitions";
+import AddSubmission from "./pages/Student/Submission/AddSubmission";
+import UpdateSubmition from "./pages/Student/Submission/UpdateSubmission";
+import ViewAllInstructors from "./pages/Student/Instructor/ViewAllInstructors";
+import ViewAllLecturers from "./pages/Student/Lecturer/ViewAllLecturers";
+import ViewAllAssignments from "./pages/Student/Assignment/ViewAllAssignments";
+import ViewAssignment from "./pages/Student/Assignment/ViewAssignment";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -88,8 +99,8 @@ const App = () => {
       } else {
         alert("Invalid password. Please try again.");
       }
-    } else if (username === "suruthi") {
-      if (password === "21001172") {
+    } else if (username === "dasun") {
+      if (password === "dasun123") {
         setLoggedIn(true);
       } else {
         alert("Invalid password. Please try again.");
@@ -124,8 +135,8 @@ const App = () => {
     }
 
     // Student Login
-    else if (username === "sathnidu") {
-      if (password === "111") {
+    else if (username === "suruthi") {
+      if (password === "21001172") {
         setLoggedIn_stu(true);
       } else {
         alert("Invalid password. Please try again.");
@@ -151,31 +162,29 @@ const App = () => {
           <Route
             path="/"
             element={
-              loggedIn ||
-              loggedIn_lec ||
-              loggedIn_ins ||
-              loggedIn_nona ||
-              loggedIn_stu ||
-              loggedIn_clean ? (
-                <Home />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
+              loggedIn_stu ? <Home /> : <Login handleLogin={handleLogin} />
             }
           />
+
           <Route path="/signup" element={<Signup />} />
+
+          {/* -------------------------------- Admin -------------------------------- */}
+
+          {/* --------------- Student --------------- */}
           <Route
             path="/add_student"
             element={
               loggedIn ? <AddStudent /> : <Login handleLogin={handleLogin} />
             }
           />
+
           <Route
             path="/view_students"
             element={
               loggedIn ? <All_students /> : <Login handleLogin={handleLogin} />
             }
           />
+
           <Route
             path="/update_student/:id"
             element={
@@ -186,18 +195,22 @@ const App = () => {
               )
             }
           />
+
+          {/* --------------- Lecturer --------------- */}
           <Route
             path="/add_lecturer"
             element={
               loggedIn ? <AddLecturer /> : <Login handleLogin={handleLogin} />
             }
           />
+
           <Route
             path="/view_lecturers"
             element={
               loggedIn ? <All_lecturers /> : <Login handleLogin={handleLogin} />
             }
           />
+
           <Route
             path="/update_lecturer/:id"
             element={
@@ -208,12 +221,15 @@ const App = () => {
               )
             }
           />
+
+          {/* --------------- Instructor --------------- */}
           <Route
             path="/add_instructor"
             element={
               loggedIn ? <AddInstructor /> : <Login handleLogin={handleLogin} />
             }
           />
+
           <Route
             path="/view_instructors"
             element={
@@ -224,6 +240,7 @@ const App = () => {
               )
             }
           />
+
           <Route
             path="/update_instructor/:id"
             element={
@@ -234,6 +251,8 @@ const App = () => {
               )
             }
           />
+
+          {/* --------------- Non Acedamic --------------- */}
           <Route
             path="/add_nonacademicstaff"
             element={
@@ -244,6 +263,7 @@ const App = () => {
               )
             }
           />
+
           <Route
             path="/view_nonacademicstaff"
             element={
@@ -254,6 +274,7 @@ const App = () => {
               )
             }
           />
+
           <Route
             path="/update_nonacademicstaff/:id"
             element={
@@ -264,6 +285,8 @@ const App = () => {
               )
             }
           />
+
+          {/* --------------- Cleaning --------------- */}
           <Route
             path="/add_cleaningstaff"
             element={
@@ -274,6 +297,7 @@ const App = () => {
               )
             }
           />
+
           <Route
             path="/view_cleaningstaff"
             element={
@@ -284,6 +308,7 @@ const App = () => {
               )
             }
           />
+
           <Route
             path="/update_cleaningstaff/:id"
             element={
@@ -294,12 +319,20 @@ const App = () => {
               )
             }
           />
+
           <Route
             path="/view_signup"
             element={
               loggedIn ? <View_signup /> : <Login handleLogin={handleLogin} />
             }
           />
+
+          <Route
+            path="/admin"
+            element={loggedIn ? <Admin /> : <Login handleLogin={handleLogin} />}
+          />
+
+          {/* -------------------------------- Lecturer -------------------------------- */}
           <Route
             path="/add_course"
             element={
@@ -331,7 +364,7 @@ const App = () => {
             }
           />
           <Route
-            path="/viewCourse/:id"
+            path="/lecturer/viewCourse/:id"
             element={
               loggedIn_lec || loggedIn ? (
                 <ViewCourse />
@@ -370,36 +403,7 @@ const App = () => {
               )
             }
           />
-          <Route
-            path="/add_issue"
-            element={
-              loggedIn || loggedIn_nona ? (
-                <Addissue />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/view_issues"
-            element={
-              loggedIn || loggedIn_nona ? (
-                <All_issue />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/update_issue/:id"
-            element={
-              loggedIn || loggedIn_nona ? (
-                <Update_issue />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
+
           <Route
             path="/add_assignment"
             element={
@@ -411,7 +415,7 @@ const App = () => {
             }
           />
           <Route
-            path="/view_assignments"
+            path="/lecturer/view_assignments"
             element={
               loggedIn || loggedIn_lec || loggedIn_ins ? (
                 <All_assignment />
@@ -421,10 +425,10 @@ const App = () => {
             }
           />
           <Route
-            path="/viewAssignment/:id"
+            path="/lecturer/viewAssignment/:id"
             element={
               loggedIn_lec || loggedIn ? (
-                <ViewAssignment />
+                <ViewAssignment_Lec />
               ) : (
                 <Login handleLogin={handleLogin} />
               )
@@ -440,46 +444,126 @@ const App = () => {
               )
             }
           />
-          <Route
-            path="/view_announcements_stu"
-            element={
-              loggedIn || loggedIn_stu || loggedIn_clean ? (
-                <View_anno_stu />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/View_Assignment_stu"
-            element={
-              loggedIn || loggedIn_stu ? (
-                <View_Assignment_stu />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/View_course_stu"
-            element={
-              loggedIn || loggedIn_stu ? (
-                <View_course_stu />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/admin"
-            element={loggedIn ? <Admin /> : <Login handleLogin={handleLogin} />}
-          />
+
           <Route
             path="/lecturer"
             element={
               loggedIn_lec ? <Lecturer /> : <Login handleLogin={handleLogin} />
             }
           />
+
+          {/* -------------------------------- Student -------------------------------- */}
+          <Route
+            path="/ViewCourses"
+            element={
+              loggedIn_stu ? (
+                <ViewCourses />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewCourse/:id"
+            element={
+              loggedIn_stu ? (
+                <ViewCourse />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewAnnouncements"
+            element={
+              loggedIn_stu ? (
+                <ViewAllAnnouncements />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewSubmissions"
+            element={
+              loggedIn_stu ? (
+                <ViewAllSubmissions />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/AddAubmission"
+            element={
+              loggedIn_stu ? (
+                <AddSubmission />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/UpdateSubmission/:id"
+            element={
+              loggedIn_stu ? (
+                <UpdateSubmition />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewInstructors"
+            element={
+              loggedIn_stu ? (
+                <ViewAllInstructors />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewLecturers"
+            element={
+              loggedIn_stu ? (
+                <ViewAllLecturers />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewAssignments"
+            element={
+              loggedIn_stu ? (
+                <ViewAllAssignments />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/ViewAssignment/:id"
+            element={
+              loggedIn_stu ? (
+                <ViewAssignment />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          {/* -------------------------------- Instructor -------------------------------- */}
           <Route
             path="/instructor"
             element={
@@ -490,54 +574,57 @@ const App = () => {
               )
             }
           />
-          <Route
-            path="/student"
-            element={
-              loggedIn_stu ? <Student /> : <Login handleLogin={handleLogin} />
-            }
-          />
+
+          {/* -------------------------------- Non Acedamic -------------------------------- */}
           <Route
             path="/nonacc"
             element={
               loggedIn_nona ? <Non_aca /> : <Login handleLogin={handleLogin} />
             }
           />
+
+          <Route
+            path="/add_issue"
+            element={
+              loggedIn || loggedIn_nona ? (
+                <Addissue />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/view_issues"
+            element={
+              loggedIn || loggedIn_nona ? (
+                <All_issue />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          <Route
+            path="/update_issue/:id"
+            element={
+              loggedIn || loggedIn_nona ? (
+                <Update_issue />
+              ) : (
+                <Login handleLogin={handleLogin} />
+              )
+            }
+          />
+
+          {/* -------------------------------- Cleaning -------------------------------- */}
           <Route
             path="/cleans"
             element={
               loggedIn_clean ? <Clean_s /> : <Login handleLogin={handleLogin} />
             }
           />
-          <Route
-            path="/add_submition"
-            element={
-              loggedIn_stu ? (
-                <Addsubmition />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/view_submitions"
-            element={
-              loggedIn_stu ? (
-                <All_submition />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
-          <Route
-            path="/update_submition/:id"
-            element={
-              loggedIn_stu ? (
-                <Update_submition />
-              ) : (
-                <Login handleLogin={handleLogin} />
-              )
-            }
-          />
+
+          {/* -------------------------------- Instructor -------------------------------- */}
           <Route
             path="/view_submition_lec"
             element={

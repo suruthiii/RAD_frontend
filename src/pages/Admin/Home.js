@@ -1,9 +1,9 @@
 import React from "react";
-import MainHeader from "./Headers/MainHeader";
-import RightContainer from "./Home/RightContainer";
-import MiddleContainer from "./Home/MiddleContainer";
-import ProgressCircle from "./Home/MiddleContainer/ProgressCircle";
-import WelcomeMessage from "./Home/MiddleContainer/WelcomeMessage";
+import MainHeader from "../../components/Headers/MainHeader";
+import RightContainer from "../../components/Home/RightContainer";
+import MiddleContainer from "../../components/Home/MiddleContainer";
+import ProgressCircle from "../../components/Home/MiddleContainer/ProgressCircle";
+import WelcomeMessage from "../../components/Home/MiddleContainer/WelcomeMessage";
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
             <div>
               <WelcomeMessage />
             </div>
-            <div className="flex items-center justify-center relative">
+            <div className="flex items-center justify-center relative translate-x-[-80px] ">
               <ProgressCircle />
             </div>
           </div>
