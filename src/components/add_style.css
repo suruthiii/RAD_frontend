@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(115deg, #56d8e4 20%, #b2e616 80%);
+}
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  background: white;
+  border-radius: 16px;
+  width: 800px;
+  padding: 25px 40px 10px 40px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.container .text{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  background: #9A3CCE;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.container form .form-row{
+  display: flex;
+  margin: 30px 10px 10px 10px;
+}
+form .form-row .input-data{
+  width: 100%;
+  height: 40px;
+  margin: 0 20px;
+  position: relative;
+}
+.input-data input,
+.textarea textarea{
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0,0,0, 0.12);
+}
+.textarea textarea{
+  resize: none;
+  padding-top: 10px;
+}
+.input-data label{
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.textarea label{
+  width: 100%;
+  bottom: 40px;
+  background: #fff;
+}
+.input-data .underline{
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.button{
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 16px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 15px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  
+}
+
+.login {
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 60%;
+  height: 75%;
+  -webkit-box-shadow: 0px 5px 33px -21px rgb(0, 0, 0);
+  -moz-box-shadow: 0px 5px 33px -21px rgb(0, 0, 0);
+  box-shadow: 0px 5px 33px -21px rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+
+.left,.right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.or{
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  padding: 10px;
+  color: gray;
+  background-color: white;
+  font-weight: bold;
+}
+
+.line{
+  width: 1px;
+  height: 70%;
+  background-color: wheat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.loginButton{
+  width: 150px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+input{
+  width: 200px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+select{
+  width: 200px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  position: absolute;
+  color: blue;
+  background-color: lightgray;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.para{
+  font-size: 20px;
+  font-weight: 300px; 
+}
+
+.submit{
+  width: 200px;
+  background-color: rgba(128, 0, 128, 0.671);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+.loginTitle{
+  position: absolute;
+  top: 150px;
+  color: rgb(137, 65, 208)
+}
+
+.link{
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+  .card {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .wrapper {
+    width: 65%;
+    height: 90%;
+    flex-direction: column;
+  }
+
+  .loginTitle {
+    display: none;
+  }
+
+  .center {
+    width: 100%;
+    position: relative;
+  }
+
+  .left {
+    padding: 20px;
+  }
+
+  .right {
+    padding: 20px;
+  }
+
+  .line {
+    height: 0.5px;
+    width: 300px;
+  }
+}
+
+.img{
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
